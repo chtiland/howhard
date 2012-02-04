@@ -1,0 +1,25 @@
+.howhard {
+    float: right;
+    width: 150px;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+    border-color: #777;
+    box-shadow: 3px 3px 0px #aaa;
+}
+
+.howhard_img {
+    margin-top: 5px;
+}
+
+.howhard_txt {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.howhard_title {
+    font-weight: bold;
+    font-size: 16px;
+    border-bottom: 1px solid;
+}
