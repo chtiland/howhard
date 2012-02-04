@@ -51,10 +51,12 @@ class syntax_plugin_howhard extends DokuWiki_Syntax_Plugin {
 	    break;
 
 	    case DOKU_LEXER_UNMATCHED :	
+	    	return array($state,$this->note_defaut);
 	    break;
 		
 	    case DOKU_LEXER_SPECIAL :
 		$retour = substr($match,-3,1);
+		if(!in_array("$retour",$this->notes_hh) or empty($retour)) $retour=$this->note_defaut;
 		return array($state,$retour);
 	    break;
 		
