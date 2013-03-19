@@ -15,7 +15,8 @@ if (!defined('DOKU_PLUGIN')) define('DOKU_PLUGIN',DOKU_INC.'lib/plugins/');
 
 require_once DOKU_PLUGIN.'admin.php';
 
-class admin_plugin_howhard extends DokuWiki_Admin_Plugin {
+class admin_plugin_howhard extends DokuWiki_Admin_Plugin
+{
 
     public function getMenuSort() { return FIXME; }
     public function forAdminOnly() { return false; }
@@ -23,9 +24,10 @@ class admin_plugin_howhard extends DokuWiki_Admin_Plugin {
     public function handle() {
     }
 
-    public function html() {
+    public function html()
+    {
         ptln('<h1>' . $this->getLang('menu') . '</h1>');
     }
 }
 
-// vim:ts=4:sw=4:et:
+

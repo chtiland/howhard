@@ -2,11 +2,9 @@
     float: right;
     width: 150px;
     border-radius: 10px;
-    border-width: 1px;
-    border-style: solid;
-    text-align: center;
-    border-color: #777;
-    box-shadow: 3px 3px 0px #aaa;
+	text-align: center;
+	border: 1px solid #777;
+	box-shadow: 3px 3px 0 #aaa;
 }
 
 .howhard_img {
