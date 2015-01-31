@@ -21,3 +21,19 @@
     font-size: 16px;
     border-bottom: 1px solid;
 }
+
+.howhard_compact {
+    float: right;
+    width: 130px;
+	text-align: center;
+}
+
+.howhard_img_compact {
+    margin-top: 0;
+}
+
+.howhard_txt_compact {
+    margin-top: -21px;
+    font-weight: bold;
+    font-size: 14px;
+}
