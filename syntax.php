@@ -85,15 +85,19 @@ class syntax_plugin_howhard extends DokuWiki_Syntax_Plugin
         list($state, $data) = $indata;
         if($mode == 'xhtml')
         {
-            $howhardClass = ($this->getConf('confhowhardcompact') && $this->getConf('confhowhardstyle') != 1) ? 'howhard_txt_compact' : 'howhard_txt';
+            $isCompact = ($this->getConf('confhowhardcompact') && $this->getConf('confhowhardstyle') != 1) ? '_compact' : false;
 
-            $renderer->doc.= '<div class="howhard_compact">';
+            $renderer->doc.= '<div class="howhard'.$isCompact.'">';
+			if(!$isCompact)
+			{
+			    $renderer->doc.= '<div class="howhard_title">'.$this->getLang('howhardtitle').'</div>';
+			}
             $text_level = 'level'.$data;
             $style = $this->getConf('confhowhardstyle');
             $renderer->doc.= '<div class="howhard_img_compact">';
             $renderer->doc.= '<img src="'.DOKU_BASE.'lib/plugins/howhard/images/style'.$style.'/'.$data.'.png" borber="0">';
             $renderer->doc.= '</div>';
-            $renderer->doc.= '<div class="'.$howhardClass.'">'.$this->getLang($text_level).'</div>';
+            $renderer->doc.= '<div class="howhard_txt'.$isCompact.'">'.$this->getLang($text_level).'</div>';
             $renderer->doc.= '</div>';
 
             return true;
