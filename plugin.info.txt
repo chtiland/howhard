@@ -3,7 +3,7 @@
 base   howhard
 author Fabrice DEJAIGHER pour Chtiland
 email  fabrice@chtiland.com
-date   2015-01-31
+date   2015-07-25
 name   Plugin HowHard
 desc   Rate difficulty of an article
 url    http://www.chtiland.fr

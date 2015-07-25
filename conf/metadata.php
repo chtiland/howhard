@@ -6,5 +6,5 @@
  */
 
 
-$meta['confhowhardstyle'] = array('multichoice','_choices' => array('1','2'));
-
+$meta['confhowhardstyle'] = array('multichoice','_choices' => array('1','2','3','4'));
+$meta['confhowhardcompact'] = array('onoff');

@@ -6,3 +6,4 @@
  */
 
 $conf['confhowhardstyle']  = '1';
+$conf['confhowhardcompact'] = '0';

@@ -15,5 +15,3 @@ $lang['level2'] = 'Facile';
 $lang['level3'] = 'Moyen';
 $lang['level4'] = 'Difficile';
 $lang['level5'] = 'Très difficile';
-
-

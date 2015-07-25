@@ -64,7 +64,10 @@ class syntax_plugin_howhard extends DokuWiki_Syntax_Plugin
 
 		    case DOKU_LEXER_SPECIAL :
 			$retour = substr($match,-3,1);
-			if(!in_array("$retour",$this->notes_hh) or empty($retour)) $retour=$this->note_defaut;
+			if(!in_array("$retour",$this->notes_hh) or empty($retour))
+                        {
+                            $retour=$this->note_defaut;
+                        }
 			return array($state,$retour);
 		    break;
 
@@ -79,44 +82,28 @@ class syntax_plugin_howhard extends DokuWiki_Syntax_Plugin
 
     public function render($mode, &$renderer, $indata)
     {
-		list($state, $data) = $indata;
+        list($state, $data) = $indata;
         if($mode == 'xhtml')
         {
-            if ($this->getConf('compact') == 1)
-            {
-                $arr_retour = explode(',',$data);
-                $nom_user = $arr_retour[1];if(empty($nom_user)) $nom_user='USER';
-                $classe = $arr_retour[0];
-                $renderer->doc.= '<div class="howhard_compact">';
-                $text_level = 'level'.$data;
-                $style = $this->getConf('confhowhardstyle');
-                $renderer->doc.= '<div class="howhard_img_compact"><img src="'.DOKU_BASE.'lib/plugins/howhard/images/style'.$style.'/'.$data.'.png" borber="0"></div><div class="howhard_txt_compact">'.$this->getLang($text_level).'</div>';
-                $renderer->doc.= '</div>';
+            $howhardClass = ($this->getConf('confhowhardcompact') && $this->getConf('confhowhardstyle') != 1) ? 'howhard_txt_compact' : 'howhard_txt';
 
-                return true;
-            }
-            else
-            {
-                $arr_retour = explode(',',$data);
-                $nom_user = $arr_retour[1];if(empty($nom_user)) $nom_user='USER';
-                $classe = $arr_retour[0];
-                $renderer->doc.= '<div class="howhard">';
-                $renderer->doc.= '<div class="howhard_title">'.$this->getLang('howhardtitle').'</div>';
-                $text_level = 'level'.$data;
-                $style = $this->getConf('confhowhardstyle');
-                $renderer->doc.= '<div class="howhard_img"><img src="'.DOKU_BASE.'lib/plugins/howhard/images/style'.$style.'/'.$data.'.png" borber="0"></div><div class="howhard_txt">'.$this->getLang($text_level).'</div>';
-                $renderer->doc.= '</div>';
+            $renderer->doc.= '<div class="howhard_compact">';
+            $text_level = 'level'.$data;
+            $style = $this->getConf('confhowhardstyle');
+            $renderer->doc.= '<div class="howhard_img_compact">';
+            $renderer->doc.= '<img src="'.DOKU_BASE.'lib/plugins/howhard/images/style'.$style.'/'.$data.'.png" borber="0">';
+            $renderer->doc.= '</div>';
+            $renderer->doc.= '<div class="'.$howhardClass.'">'.$this->getLang($text_level).'</div>';
+            $renderer->doc.= '</div>';
 
-                return true;
-            }
-		}
+            return true;
+
+        }
         else
         {
-	        return false;
-		}
+            return false;
+	}
 
 
     }
 }
-
-?>

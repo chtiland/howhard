@@ -64,7 +64,6 @@ class action_plugin_howhard extends DokuWiki_Action_Plugin
 					'icon'   => '../../plugins/howhard/images/toolbar/5.png',
 					'insert' => '{{howhard>5}}',
 				)
-
 			)
 		);
 	}

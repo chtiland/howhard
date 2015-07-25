@@ -11,4 +11,3 @@ $lang['level2'] = 'leicht';                       // einfach          - Anfänge
 $lang['level3'] = 'mittel';                       // durchschnittlich - Anwender
 $lang['level4'] = 'schwer';                       // hoch             - Fachmann
 $lang['level5'] = 'sehr schwer';                  // sehr hoch        - Meister
-?>
