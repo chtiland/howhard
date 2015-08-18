@@ -1,9 +1,8 @@
 # General Plugin Info do not edit
-
 base   howhard
-author Fabrice DEJAIGHER pour Chtiland
+author Fabrice DEJAIGHER pour Chtiland.fr
 email  fabrice@chtiland.com
-date   2015-07-25
+date   2015-08-18
 name   Plugin HowHard
 desc   Rate difficulty of an article
-url    http://www.chtiland.fr
+url    https://www.dokuwiki.org/plugin:howhard
