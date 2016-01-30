@@ -51,7 +51,7 @@ class syntax_plugin_howhard extends DokuWiki_Syntax_Plugin
         $this->Lexer->addSpecialPattern('\{\{howhard>.*?\}\}',$mode,'plugin_howhard');
     }
 
-    public function handle($match, $state, $pos, &$handler)
+    public function handle($match, $state, $pos, Doku_Handler $handler)
     {
 		switch ($state)
 		{
@@ -80,7 +80,7 @@ class syntax_plugin_howhard extends DokuWiki_Syntax_Plugin
 
     }
 
-    public function render($mode, &$renderer, $indata)
+    public function render($mode, Doku_Renderer $renderer, $indata)
     {
         list($state, $data) = $indata;
         if($mode == 'xhtml')
