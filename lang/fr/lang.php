@@ -9,7 +9,7 @@
 // $lang['menu'] = 'Your menu entry';
 
 // custom language strings for the plugin
-$lang['howhardtitle'] = 'Dificulté';
+$lang['howhardtitle'] = 'Difficulté';
 $lang['level1'] = 'Très facile';
 $lang['level2'] = 'Facile';
 $lang['level3'] = 'Moyen';
