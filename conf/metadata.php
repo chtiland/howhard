@@ -1,6 +1,6 @@
 <?php
 /**
- * Options for the minecraft plugin
+ * Options for the Howhard plugin
  *
  * @author Fabrice DEJAIGHER <fabrice@chtiland.com>
  */

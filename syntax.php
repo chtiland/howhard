@@ -7,11 +7,25 @@
  */
 
 // must be run within Dokuwiki
-if (!defined('DOKU_INC')) die();
+if (!defined('DOKU_INC'))
+{
+	die();
+}
 
-if (!defined('DOKU_LF')) define('DOKU_LF', "\n");
-if (!defined('DOKU_TAB')) define('DOKU_TAB', "\t");
-if (!defined('DOKU_PLUGIN')) define('DOKU_PLUGIN',DOKU_INC.'lib/plugins/');
+if (!defined('DOKU_LF'))
+{
+	define('DOKU_LF', "\n");
+}
+
+if (!defined('DOKU_TAB'))
+{
+	define('DOKU_TAB', "\t");
+}
+
+if (!defined('DOKU_PLUGIN'))
+{
+	define('DOKU_PLUGIN', DOKU_INC . 'lib/plugins/');
+}
 
 require_once DOKU_PLUGIN.'syntax.php';
 
@@ -28,8 +42,6 @@ class syntax_plugin_howhard extends DokuWiki_Syntax_Plugin
     {
         return 'container';
     }
-
-    //public function getAllowedTypes() { return array('formatting', 'substition', 'disabled'); }
 
     public function getPType()
     {
@@ -65,9 +77,9 @@ class syntax_plugin_howhard extends DokuWiki_Syntax_Plugin
 		    case DOKU_LEXER_SPECIAL :
 			$retour = substr($match,-3,1);
 			if(!in_array("$retour",$this->notes_hh) or empty($retour))
-                        {
-                            $retour=$this->note_defaut;
-                        }
+			{
+				$retour=$this->note_defaut;
+			}
 			return array($state,$retour);
 		    break;
 
@@ -83,17 +95,30 @@ class syntax_plugin_howhard extends DokuWiki_Syntax_Plugin
     public function render($mode, Doku_Renderer $renderer, $indata)
     {
         list($state, $data) = $indata;
+
         if($mode == 'xhtml')
         {
-            $isCompact = ($this->getConf('confhowhardcompact') && $this->getConf('confhowhardstyle') != 1) ? '_compact' : false;
+			// Compact mode ?
+			$isCompact = false;
+			if($this->getConf('confhowhardcompact')					// Activated
+					&& $this->getConf('confhowhardstyle') != 1)		// But not for style '1'
+			{
+				$isCompact = '_compact';
+			}
 
+			// vars
+			$text_level = 'level'.$data;
+            $style = $this->getConf('confhowhardstyle');
+
+			// Render
             $renderer->doc.= '<div class="howhard'.$isCompact.'">';
-			if(!$isCompact)
+
+			if(!$isCompact)	// If not compact, add title.
 			{
 			    $renderer->doc.= '<div class="howhard_title">'.$this->getLang('howhardtitle').'</div>';
 			}
-            $text_level = 'level'.$data;
-            $style = $this->getConf('confhowhardstyle');
+
+
             $renderer->doc.= '<div class="howhard_img_compact">';
             $renderer->doc.= '<img src="'.DOKU_BASE.'lib/plugins/howhard/images/style'.$style.'/'.$data.'.png" borber="0">';
             $renderer->doc.= '</div>';
@@ -106,8 +131,6 @@ class syntax_plugin_howhard extends DokuWiki_Syntax_Plugin
         else
         {
             return false;
-	}
-
-
+		}
     }
 }

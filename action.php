@@ -32,6 +32,7 @@ class action_plugin_howhard extends DokuWiki_Action_Plugin
 		(
 			'type'  => 'picker',
 			'title' => 'HowHard',
+			'class' => 'howhard_toolbar',
 			'icon'  => '../../plugins/howhard/images/toolbar/level_select.png',
 			'list'  => array (
 				array (

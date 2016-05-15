@@ -37,3 +37,8 @@
     font-weight: bold;
     font-size: 14px;
 }
+
+div.picker.howhard_toolbar {
+	width: auto;
+}
+
