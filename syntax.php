@@ -120,7 +120,7 @@ class syntax_plugin_howhard extends DokuWiki_Syntax_Plugin
 
 
             $renderer->doc.= '<div class="howhard_img_compact">';
-            $renderer->doc.= '<img src="'.DOKU_BASE.'lib/plugins/howhard/images/style'.$style.'/'.$data.'.png" border="0" rel="'.$text_level.'">';
+            $renderer->doc.= '<img src="'.DOKU_BASE.'lib/plugins/howhard/images/style'.$style.'/'.$data.'.png" border="0" rel="'.$this->getLang($text_level).'">';
             $renderer->doc.= '</div>';
             $renderer->doc.= '<div class="howhard_txt'.$isCompact.'">'.$this->getLang($text_level).'</div>';
             $renderer->doc.= '</div>';
